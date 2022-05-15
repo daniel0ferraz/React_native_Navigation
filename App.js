@@ -4,6 +4,7 @@ import useProdutores from './src/hooks/useProdutores';
 
 import Home from './src/telas/Home';
 import Cesta from './src/telas/Cesta';
+import {NavigationContainer} from '@react-navigation/native';
 
 export default function App() {
   const produtores = useProdutores(false);
@@ -11,8 +12,10 @@ export default function App() {
   return (
     <SafeAreaView style={{flex: 1}}>
       <StatusBar />
-      {/* <Home melhoresProdutores={false} /> */}
-      {produtores.length > 0 && (
+
+      <NavigationContainer>
+        <Home melhoresProdutores={false} />
+        {/* {produtores.length > 0 && (
         <Cesta
           produtor={{
             nome: produtores[0].nome,
@@ -20,7 +23,8 @@ export default function App() {
           }}
           {...produtores[0].cestas[0]}
         />
-      )}
+      )} */}
+      </NavigationContainer>
     </SafeAreaView>
   );
 }
